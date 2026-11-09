@@ -1,0 +1,684 @@
+/* ===================================================
+   SISTEM INFORMASI JEMAAT GPM WARU
+   MAIN STYLESHEET (FIXED DESKTOP VIEW ON ALL DEVICES)
+   =================================================== */
+
+:root {
+    --primary-color: #1b3b6f;
+    --primary-hover: #142a50;
+    --accent-color: #ffd166;
+    --secondary-color: #0f2537;
+    --light-bg: #f4f7f6;
+    --dark-text: #2b2b2b;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+    min-width: 1200px !important; /* Mengunci lebar minimal halaman agar tetap seperti desktop */
+    overflow-x: auto !important;   /* Memunculkan scroll horizontal jika dibuka di layar kecil */
+}
+
+.container {
+    width: 1200px !important;
+    max-width: none !important;
+    margin: 0 auto;
+}
+
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.text-center { text-align: center; }
+
+/* Margin Helpers */
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 2rem; }
+
+/* Grid System (Dikunci agar susunannya tetap menyamping persis seperti desktop) */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* ===================================================
+   HEADER & NAVIGATION
+   =================================================== */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-right: 12px;
+}
+
+.logo-text h2 {
+    font-size: 1.4rem;
+    line-height: 1.1;
+}
+
+.logo-text span {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 3px;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 3px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-surat {
+    background-color: var(--accent-color) !important;
+    color: var(--primary-color) !important;
+    font-weight: bold !important;
+}
+
+/* Nav Custom Roles */
+.nav-admin { background: #ffc107 !important; color: #111 !important; font-weight: 700 !important; }
+.nav-archive { background: #198754 !important; color: #fff !important; font-weight: 700 !important; }
+.nav-logout { background: #dc3545 !important; color: #fff !important; }
+
+.mobile-toggle {
+    display: none !important; /* Tombol menu hamburger disembunyikan agar navigasi desktop tampil utuh */
+}
+
+/* ===================================================
+   HERO BANNER & ANIMATION
+   =================================================== */
+.hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #1b3b6f, #0f2537);
+    color: var(--white);
+    padding: 5rem 2rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.fade-in-down { animation: fadeInDown 1.2s ease-out; }
+.fade-in-up { animation: fadeInUp 1.2s ease-out; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   CARD & STAT STYLES
+   =================================================== */
+.card {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 9px;
+    box-shadow: var(--shadow);
+}
+
+.stat-card {
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.color-primary { color: #1b3b6f; }
+.color-success { color: #2e7d32; }
+.color-info { color: #0288d1; }
+.color-warning { color: #ed6c02; }
+
+.border-primary { border-top: 4px solid #1b3b6f; }
+.border-success { border-top: 4px solid #2e7d32; }
+.border-info { border-top: 4px solid #0288d1; }
+.border-warning { border-top: 4px solid #ed6c02; }
+
+/* Page Header */
+.page-header {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 10px 0 15px 0;
+}
+
+/* ===================================================
+   TABLES & BADGES
+   =================================================== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.custom-table th, .custom-table td {
+    padding: 11px 15px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.custom-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.highlight-row {
+    background-color: #fef2f2 !important;
+    font-weight: bold;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.bg-primary { background: #1b3b6f; }
+.bg-secondary { background: #475569; }
+.bg-warning { background: #d97706; }
+.bg-info { background: #0288d1; }
+.bg-danger { background: #dc2626; }
+
+/* ===================================================
+   FORM STYLES & CONTROLS
+   =================================================== */
+.admin-form {
+    display: grid;
+    gap: 14px;
+    margin-top: 14px;
+    text-align: left;
+}
+
+.admin-form label {
+    display: grid;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #34415a;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #24334d;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(27, 59, 111, 0.1);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary { background-color: var(--primary-color); color: var(--white); }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-hero { background-color: var(--accent-color); color: var(--primary-color); }
+.btn-success { background: #198754 !important; color: #fff !important; }
+.btn-danger { background: #dc2626 !important; color: #fff !important; }
+.btn-secondary { background: #6c757d !important; color: #fff !important; }
+.btn-small { padding: 6px 9px !important; font-size: 0.82rem !important; }
+
+/* ===================================================
+   LOGIN PAGE STYLING
+   =================================================== */
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: min(100%, 460px);
+    background: var(--white);
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(19, 37, 69, 0.1);
+    border: 1px solid #e8ecf4;
+    text-align: center;
+}
+
+.login-emblem {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    font-size: 28px;
+    box-shadow: 0 8px 20px rgba(27, 59, 111, 0.2);
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    color: #9a7a2e;
+    text-transform: uppercase;
+}
+
+.login-card h1 {
+    font-size: 26px;
+    color: #192743;
+    margin: 8px 0 6px;
+}
+
+.login-card > p {
+    font-size: 13px;
+    color: #7e899c;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+
+.admin-btn.primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+}
+
+.admin-btn.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.login-foot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #929bad;
+    font-size: 11px;
+    margin-top: 24px;
+}
+
+.login-foot i {
+    margin-right: 6px;
+}
+
+/* ===================================================
+   ADMIN TOOLS & UTILITIES
+   =================================================== */
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+    margin-bottom: 15px;
+}
+
+.search-form {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 260px;
+}
+
+.search-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #ccd5df;
+    border-radius: 6px;
+}
+
+.notice { padding: 12px 15px; border-radius: 7px; margin: 12px 0; }
+.notice-success { background: #e7f6ed; color: #14532d; border: 1px solid #b7e4c7; }
+.notice-error { background: #fff0f0; color: #842029; border: 1px solid #f5c2c7; }
+
+.small-muted { font-size: .85rem; color: #667085; }
+.inline-form { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.admin-thumb { width: 76px; height: 60px; object-fit: cover; border-radius: 6px; }
+
+.admin-feature {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .2s, box-shadow .2s;
+}
+.admin-feature:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px #102b4b20;
+}
+.admin-feature > i { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 10px; }
+.admin-feature p { color: #596579; }
+
+/* Gallery & Facility Placeholders */
+.gallery-placeholder, .video-placeholder {
+    background: #e2e8f0;
+    height: 180px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.bg-pembangunan { background: #fef3c7; color: #b45309; }
+.video-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+.facility-photo { width: 100%; height: 210px; object-fit: cover; border-radius: 7px; margin-bottom: 14px; }
+.facility-card h3 { margin: 8px 0; }
+.facility-card p { color: #596579; }
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem 0 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer-col h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.social-link {
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 15px;
+}
+/* ===================================================
+   PERBAIKAN TAMPILAN MOBILE: HERO BANNER & CONTAINER
+   =================================================== */
+@media (max-width: 768px) {
+    /* 1. Kunci layar agar tidak bisa digeser ke samping */
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Berikan jarak aman di pinggir container agar tidak menempel */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Atur ulang tinggi dan padding banner utama agar teks tersusun pas di tengah */
+    .hero-banner {
+        padding: 2.5rem 1rem !important;
+        height: auto !important;
+        min-height: auto !important;
+        border-radius: 6px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+    }
+
+    /* 4. Sesuaikan ukuran judul utama agar tidak terlalu besar di HP */
+    .hero-content h1 {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 5. Ubah grid kartu statistik dan menu menjadi susunan ke bawah secara rapi */
+    .grid-2, .grid-3, .grid-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .card, .stat-card, .gpm-feature-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+/* ===================================================
+   PERBAIKAN TAMPILAN MOBILE: LURUS KE BAWAH & PAS DI LAYAR
+   =================================================== */
+@media (max-width: 768px) {
+    /* 1. Kunci total agar body tidak bisa bergeser ke samping */
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Paksa semua container mengikuti lebar layar HP dengan padding aman */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+
+    /* 3. Ubah semua tata letak grid (kartu statistik, dll) menjadi lurus ke bawah */
+    .grid-2, .grid-3, .grid-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 4. Pastikan setiap card/kotak pas memenuhi lebar layar */
+    .card, .stat-card, .gpm-feature-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 5. Rapikan banner utama agar teks dan logonya berada di tengah dengan pas */
+    .hero-banner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 2.5rem 1rem !important;
+        box-sizing: border-box !important;
+        border-radius: 0 !important;
+        text-align: center !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        position: relative !important;
+        transform: none !important;
+        left: auto !important;
+        top: auto !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+    }
+}
+/* ===================================================
+   PENYESUAIAN AKHIR CONTAINER & KARTU STATISTIK DI MOBILE
+   =================================================== */
+@media (max-width: 768px) {
+    /* Memastikan card putih statistik tidak melebar keluar layar */
+    .card, .stat-card, .gpm-feature-card, .page-header {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Mengunci lebar elemen pembungkus putih agar pas di dalam layar HP */
+    body > .container, .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+}
+@media screen and (max-width: 992px) {
+    /* 1. Sembunyikan menu secara default di HP */
+    .header-nav {
+        display: none !important;
+    }
+
+    /* 2. PAKSA TAMPIL dan turun ke bawah saat tombol diklik (kelas .active aktif) */
+    .header-nav.active {
+        display: flex !important;
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #0f2c59 !important; /* Warna latar belakang menu */
+        padding: 20px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+        z-index: 99999 !important;
+    }
+
+    /* 3. Atur tata letak teks/link di dalam menu agar terlihat jelas */
+    .header-nav.active a {
+        color: #ffffff !important;
+        padding: 12px 0 !important;
+        text-decoration: none !important;
+        display: block !important;
+        font-size: 16px !important;
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-left: 0 !important;
+    }
+}
